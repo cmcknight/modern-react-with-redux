@@ -45,8 +45,8 @@ Button.propTypes = {
     const count =
       Number(!!primary) +
       Number(!!secondary) +
-      Number(!!success) +
       Number(!!warning) +
+      Number(!!success) +
       Number(!!danger);
 
     if (count > 1) {

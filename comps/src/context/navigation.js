@@ -18,6 +18,7 @@ const NavigationProvider = ({ children }) => {
   }, []);
 
   const navigate = (to) => {
+    console.log(`navigate function - ${to}`);
     // to - destination
     window.history.pushState({}, '', to);
     setCurrentPath(to);

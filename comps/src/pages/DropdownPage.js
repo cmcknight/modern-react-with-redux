@@ -3,6 +3,7 @@ import Dropdown from '../components/Dropdown';
 
 const DropdownPage = () => {
   const [selection, setSelection] = useState(null);
+
   const handleSelect = (option) => {
     setSelection(option);
   };

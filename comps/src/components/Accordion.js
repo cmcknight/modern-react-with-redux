@@ -18,6 +18,7 @@ const Accordion = ({ items }) => {
         {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
       </span>
     );
+
     return (
       <div key={item.id}>
         <div

@@ -11,6 +11,8 @@ const Dropdown = ({ options, value, onChange }) => {
       if (divEl.current) {
         return;
       }
+
+      console.log(`divEl: ${divEl}`);
       if (!divEl.current.contains(event.target)) {
         setIsOpen(false);
       }
@@ -25,7 +27,7 @@ const Dropdown = ({ options, value, onChange }) => {
   }, []);
 
   const handleClick = () => {
-    setIsOpen((currentIsOpen) => !isOpen);
+    setIsOpen(!isOpen);
   };
 
   const handleOptionClick = (option) => {
@@ -38,9 +40,9 @@ const Dropdown = ({ options, value, onChange }) => {
   const renderedOptions = options.map((option) => {
     return (
       <div
-        key={option.value}
-        onClick={() => handleOptionClick(option)}
         className='hover:bg-sky-100 rounded cursor-pointer p-1'
+        onClick={() => handleOptionClick(option)}
+        key={option.value}
       >
         {option.label}
       </div>
@@ -48,13 +50,13 @@ const Dropdown = ({ options, value, onChange }) => {
   });
 
   return (
-    <div className='w-48 relative' ref={divEl}>
+    <div ref={divEl} className='w-48 relative'>
       <Panel
-        onClick={handleClick}
         className='flex justify-between items-center cursor-pointer'
+        onClick={handleClick}
       >
         {value?.label || 'Select...'}
-        <GoChevronDown className='text-2xl' />
+        <GoChevronDown className='text-lg' />
       </Panel>
       {isOpen && <Panel className='absolute top-full'>{renderedOptions}</Panel>}
     </div>
